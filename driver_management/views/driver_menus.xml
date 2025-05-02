@@ -1,0 +1,4 @@
+<odoo>
+    <menuitem id="menu_driver_root" name="Driver Management"/>
+    <menuitem id="menu_driver" name="Drivers" parent="menu_driver_root" action="action_driver"/>
+</odoo>
