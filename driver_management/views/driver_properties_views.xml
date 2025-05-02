@@ -34,9 +34,46 @@
     </record>
 
 
+    <record id="employment_history_view_form" model="ir.ui.view">
+        <field name="name">driver.employment.history.form</field>
+        <field name="model">driver.employment.history</field>
+        <field name="arch" type="xml">
+            <form string="Driver Employment History">
+                <sheet>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="position_title"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employment_history_view_tree" model="ir.ui.view">
+        <field name="name">driver.employment.history.tree</field>
+        <field name="model">driver.employment.history</field>
+        <field name="arch" type="xml">
+            <tree string="Driver Employment History">
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="position_title"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+
     <record id="action_driver" model="ir.actions.act_window">
         <field name="name">Drivers</field>
         <field name="res_model">driver.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_employment_history" model="ir.actions.act_window">
+        <field name="name">Driver Employment History</field>
+        <field name="res_model">driver.employment.history</field>
         <field name="view_mode">tree,form</field>
     </record>
 

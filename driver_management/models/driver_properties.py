@@ -16,3 +16,10 @@ class Driver(models.Model):
         selection=[('active', 'Active'), ('inactive', 'Inactive'), ('suspended', 'Suspended')]
     )
 
+class EmploymentHistory(models.Model):
+    _name = 'driver.employment.history'
+
+    start_date = fields.Date()
+    end_date = fields.Date()
+    position_title = fields.Char(string = 'Long Haul Driver')
+    notes = fields.Text(string = 'Notes')
