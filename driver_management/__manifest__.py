@@ -9,6 +9,10 @@
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
+        'views/driver_properties_views.xml',
+        'views/driver_menus.xml',
+        'views/res_partner_views.xml',
+
     ],
     'installable': True,
     'application': True,

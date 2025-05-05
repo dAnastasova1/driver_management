@@ -1,0 +1,89 @@
+<odoo>
+    <record id="driver_properties_view_form" model="ir.ui.view">
+        <field name="name">driver.properties.form</field>
+        <field name="model">driver.management</field>
+        <field name="arch" type="xml">
+            <form string="Driver">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="license_number"/>
+                        <field name="license_class"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="current_status"/>
+                        <field name="current_carrier_id" domain="[('is_carrier', '=', True)]"/>
+                        <field name="employment_history_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="driver_properties_view_tree" model="ir.ui.view">
+        <field name="name">driver.properties.tree</field>
+        <field name="model">driver.management</field>
+        <field name="arch" type="xml">
+            <tree string="Drivers">
+                <field name="name"/>
+                <field name="license_number"/>
+                <field name="current_status"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="current_status"/>
+                <field name="current_carrier_id" domain="[('is_carrier', '=', True)]"/>
+                <field name="employment_history_ids"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="employment_history_view_form" model="ir.ui.view">
+        <field name="name">driver.employment.history.form</field>
+        <field name="model">driver.employment.history</field>
+        <field name="arch" type="xml">
+            <form string="Driver Employment History">
+                <sheet>
+                    <group>
+                        <field name="driver_id"/>
+                        <field name="carrier_id"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="position_title"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="employment_history_view_tree" model="ir.ui.view">
+        <field name="name">driver.employment.history.tree</field>
+        <field name="model">driver.employment.history</field>
+        <field name="arch" type="xml">
+            <tree string="Driver Employment History">
+                <field name="driver_id"/>
+                <field name="carrier_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="position_title"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_driver" model="ir.actions.act_window">
+        <field name="name">Drivers</field>
+        <field name="res_model">driver.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_employment_history" model="ir.actions.act_window">
+        <field name="name">Driver Employment History</field>
+        <field name="res_model">driver.employment.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>
