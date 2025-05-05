@@ -12,6 +12,8 @@
                         <field name="phone"/>
                         <field name="email"/>
                         <field name="current_status"/>
+                        <field name="current_carrier_id" domain="[('is_carrier', '=', True)]"/>
+                        <field name="employment_history_ids"/>
                     </group>
                 </sheet>
             </form>
@@ -29,6 +31,8 @@
                 <field name="phone"/>
                 <field name="email"/>
                 <field name="current_status"/>
+                <field name="current_carrier_id" domain="[('is_carrier', '=', True)]"/>
+                <field name="employment_history_ids"/>
             </tree>
         </field>
     </record>
@@ -41,6 +45,8 @@
             <form string="Driver Employment History">
                 <sheet>
                     <group>
+                        <field name="driver_id"/>
+                        <field name="carrier_id"/>
                         <field name="start_date"/>
                         <field name="end_date"/>
                         <field name="position_title"/>
@@ -56,6 +62,8 @@
         <field name="model">driver.employment.history</field>
         <field name="arch" type="xml">
             <tree string="Driver Employment History">
+                <field name="driver_id"/>
+                <field name="carrier_id"/>
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="position_title"/>
