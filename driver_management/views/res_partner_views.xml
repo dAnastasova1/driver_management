@@ -14,4 +14,12 @@
             </xpath>
         </field>
     </record>
+
+    <record id="action_carrier_partners" model="ir.actions.act_window">
+        <field name="name">Carriers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_carrier', '=', True)]</field>
+    </record>
+
 </odoo>

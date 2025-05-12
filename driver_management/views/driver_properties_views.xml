@@ -5,6 +5,14 @@
         <field name="arch" type="xml">
             <form string="Driver">
                 <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="%(action_employment_history)d"
+                                type="action"
+                                class="oe_stat_button"
+                                string="Employment History">
+                            <field name="employment_history_ids" widget="statinfo"/>
+                        </button>
+                    </div>
                     <group>
                         <field name="name"/>
                         <field name="license_number"/>
@@ -13,7 +21,6 @@
                         <field name="email"/>
                         <field name="current_status"/>
                         <field name="current_carrier_id" domain="[('is_carrier', '=', True)]"/>
-                        <field name="employment_history_ids"/>
                     </group>
                 </sheet>
             </form>
@@ -34,6 +41,21 @@
                 <field name="current_carrier_id" domain="[('is_carrier', '=', True)]"/>
                 <field name="employment_history_ids"/>
             </tree>
+        </field>
+    </record>
+
+    <record id="view_driver_management_search" model="ir.ui.view">
+        <field name="name">driver.management.search</field>
+        <field name="model">driver.management</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="current_carrier_id" string="Current Carrier" domain="[('is_carrier', '=', True)]"/>
+
+                <filter name="filter_status_active" string="Active" domain="[('current_status', '=', 'active')]"/>
+                <filter name="filter_status_inactive" string="Inactive" domain="[('current_status', '=', 'inactive')]"/>
+                <filter name="filter_status_suspended" string="Suspended"
+                        domain="[('current_status', '=', 'suspended')]"/>
+            </search>
         </field>
     </record>
 
@@ -78,6 +100,14 @@
         <field name="res_model">driver.management</field>
         <field name="view_mode">tree,form</field>
     </record>
+
+    <record id="action_driver" model="ir.actions.act_window">
+        <field name="name">Drivers</field>
+        <field name="res_model">driver.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_driver_management_search"/>
+    </record>
+
 
     <record id="action_employment_history" model="ir.actions.act_window">
         <field name="name">Driver Employment History</field>

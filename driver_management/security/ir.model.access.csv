@@ -1,3 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_driver_management,access_driver_management,model_driver_management,base.group_user,1,1,1,1
 driver_management.access_driver_employment_history,access_driver_employment_history,driver_management.model_driver_employment_history,base.group_user,1,1,1,1
+access_driver_manager,access.driver.management.manager,model_driver_management,group_driver_manager,1,1,1,1
+access_driver_viewer,access.driver.management.viewer,model_driver_management,group_driver_viewer,1,0,0,0
+access_employment_history_manager,access.driver.employment.history.manager,model_driver_employment_history,group_driver_manager,1,1,1,1
+access_employment_history_viewer,access.driver.employment.history.viewer,model_driver_employment_history,group_driver_viewer,1,0,0,0
+
