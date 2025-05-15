@@ -49,7 +49,8 @@
         <field name="model">driver.management</field>
         <field name="arch" type="xml">
             <search>
-                <field name="current_carrier_id" string="Current Carrier" domain="[('is_carrier', '=', True)]"/>
+                <field name="current_carrier_id" string="Current Carrier" />
+                <filter name="filter_carrier" string="Carrier" domain="[('current_carrier_id', '!=', False)]"/>
 
                 <filter name="filter_status_active" string="Active" domain="[('current_status', '=', 'active')]"/>
                 <filter name="filter_status_inactive" string="Inactive" domain="[('current_status', '=', 'inactive')]"/>
